@@ -1,0 +1,37 @@
+<div
+  id="cookie-banner"
+  class="fixed inset-x-0 bottom-0 z-50 hidden border-t border-sand-300 bg-cream-50 px-5 py-5 shadow-[0_-12px_28px_-16px_rgba(58,54,44,0.35)] sm:px-8"
+  role="region"
+  aria-label="Çerez bildirimi"
+>
+  <div class="container-page flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <p class="max-w-2xl text-sm leading-relaxed text-ink-700">
+      Bu site, deneyiminizi iyileştirmek için temel çerezler kullanır. Detaylar için
+      <a href="/cerez-politikasi/" class="font-semibold text-sage-700 underline underline-offset-2">Çerez Politikası</a>
+      sayfasını inceleyebilirsiniz. [DÜZENLE]
+    </p>
+    <div class="flex shrink-0 gap-3">
+      <button id="cookie-decline" type="button" class="btn-secondary !px-5 !py-2.5 text-sm">Reddet</button>
+      <button id="cookie-accept" type="button" class="btn-primary !px-5 !py-2.5 text-sm">Kabul Et</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'pdr-cerez-onay';
+  const banner = document.getElementById('cookie-banner');
+  const accept = document.getElementById('cookie-accept');
+  const decline = document.getElementById('cookie-decline');
+
+  if (!localStorage.getItem(KEY) && banner) {
+    banner.classList.remove('hidden');
+  }
+
+  const hide = (value: string) => {
+    localStorage.setItem(KEY, value);
+    banner?.classList.add('hidden');
+  };
+
+  accept?.addEventListener('click', () => hide('accepted'));
+  decline?.addEventListener('click', () => hide('declined'));
+</script>

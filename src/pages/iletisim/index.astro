@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, whatsappLink } from '../../lib/site';
+---
+
+<BaseLayout title="İletişim" description="Online psikolojik danışmanlık için iletişim bilgileri ve form. [DÜZENLE]">
+  <section class="bg-sage-50 py-20">
+    <div class="container-page reveal max-w-2xl">
+      <p class="eyebrow">İletişim</p>
+      <h1 class="mt-4 font-display text-4xl text-ink-900 sm:text-5xl">Sizden haber almak isterim</h1>
+      <p class="mt-5 text-lg leading-relaxed text-ink-700">
+        [DÜZENLE] Formu doldurabilir, WhatsApp'tan yazabilir ya da doğrudan e-posta gönderebilirsiniz.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="grid gap-12 md:grid-cols-[1fr_1.2fr]">
+      <div class="reveal space-y-8">
+        <div class="card-surface p-7">
+          <p class="eyebrow">E-posta</p>
+          <a href={`mailto:${site.email}`} class="mt-2 block font-display text-lg text-ink-900 hover:text-sage-700">{site.email}</a>
+        </div>
+        <div class="card-surface p-7">
+          <p class="eyebrow">WhatsApp</p>
+          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" class="mt-2 block font-display text-lg text-ink-900 hover:text-sage-700">
+            {site.whatsappDisplay}
+          </a>
+        </div>
+        <div class="card-surface p-7">
+          <p class="eyebrow">Çalışma Saatleri</p>
+          <p class="mt-2 text-[16px] text-ink-800">{site.workingHours}</p>
+        </div>
+        <div class="card-surface p-7">
+          <p class="eyebrow">Görüşme Şekli</p>
+          <p class="mt-2 text-[16px] leading-relaxed text-ink-800">
+            Tüm görüşmeler online olarak Zoom üzerinden gerçekleştirilir; fiziki adres bulunmamaktadır.
+          </p>
+        </div>
+      </div>
+
+      <form id="contact-form" class="reveal card-surface flex flex-col gap-5 p-8" novalidate>
+        <p class="text-sm text-ink-700/70">
+          [DÜZENLE] Bu form şu an statik bir placeholder'dır. Göndermeden önce bir form servisine
+          (örn. Formspree, Netlify Forms) bağlamanız gerekir.
+        </p>
+        <div>
+          <label for="name" class="mb-1.5 block text-sm font-medium text-ink-800">Ad Soyad</label>
+          <input id="name" name="name" type="text" required class="w-full rounded-xl border border-sand-300 bg-cream-50 px-4 py-3 text-[15px] text-ink-900 outline-none focus:border-sage-500" />
+        </div>
+        <div>
+          <label for="email" class="mb-1.5 block text-sm font-medium text-ink-800">E-posta</label>
+          <input id="email" name="email" type="email" required class="w-full rounded-xl border border-sand-300 bg-cream-50 px-4 py-3 text-[15px] text-ink-900 outline-none focus:border-sage-500" />
+        </div>
+        <div>
+          <label for="phone" class="mb-1.5 block text-sm font-medium text-ink-800">Telefon <span class="text-ink-700/50">(opsiyonel)</span></label>
+          <input id="phone" name="phone" type="tel" class="w-full rounded-xl border border-sand-300 bg-cream-50 px-4 py-3 text-[15px] text-ink-900 outline-none focus:border-sage-500" />
+        </div>
+        <div>
+          <label for="message" class="mb-1.5 block text-sm font-medium text-ink-800">Mesajınız</label>
+          <textarea id="message" name="message" rows="4" required class="w-full rounded-xl border border-sand-300 bg-cream-50 px-4 py-3 text-[15px] text-ink-900 outline-none focus:border-sage-500"></textarea>
+        </div>
+        <label class="flex items-start gap-3 text-sm leading-relaxed text-ink-700">
+          <input id="kvkk" name="kvkk" type="checkbox" required class="mt-1 h-4 w-4 shrink-0 cursor-pointer rounded border-sand-300 text-sage-600 focus:ring-sage-500" />
+          <span>
+            <a href="/kvkk/" class="font-semibold text-sage-700 underline underline-offset-2">KVKK Aydınlatma Metni</a>'ni
+            okudum, kişisel verilerimin işlenmesine açık rıza veriyorum.
+          </span>
+        </label>
+        <button type="submit" class="btn-primary justify-center">Gönder</button>
+        <p id="form-feedback" class="hidden text-sm font-medium text-sage-700" role="status"></p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const feedback = document.getElementById('form-feedback');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!(form as HTMLFormElement).checkValidity()) {
+      (form as HTMLFormElement).reportValidity();
+      return;
+    }
+    if (feedback) {
+      feedback.textContent = 'Mesajınız alındı. [DÜZENLE] Bu formu bir backend servisine bağlayana kadar mesajlar gönderilmez.';
+      feedback.classList.remove('hidden');
+    }
+    (form as HTMLFormElement).reset();
+  });
+</script>

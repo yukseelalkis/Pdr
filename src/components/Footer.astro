@@ -1,0 +1,62 @@
+---
+import { nav, site, whatsappLink } from '../lib/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-sand-200/70 bg-sage-900 text-cream-100">
+  <div class="container-page grid gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr]">
+    <div>
+      <p class="name-warm text-2xl">{site.shortName}</p>
+      <p class="mt-1 text-sm uppercase tracking-[0.16em] text-sage-300">Psikolojik Danışman, PDR</p>
+      <p class="mt-5 max-w-sm text-[15px] leading-relaxed text-cream-100/80">
+        Online psikolojik danışmanlık; bulunduğunuz yerden, Zoom üzerinden, gizlilik ilkesine uygun
+        görüşmelerle. [DÜZENLE]
+      </p>
+      <a
+        href={site.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-flex items-center gap-2 text-[15px] text-cream-100/90 hover:text-cream-50"
+        aria-label="Instagram hesabı (yeni sekmede açılır)"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17" cy="7" r="0.6" fill="currentColor" stroke="none" />
+        </svg>
+        Instagram
+      </a>
+    </div>
+
+    <div>
+      <p class="eyebrow text-sage-300">Hızlı Bağlantılar</p>
+      <ul class="mt-4 flex flex-col gap-2.5">
+        {nav.map((item) => (
+          <li><a href={item.href} class="text-[15px] text-cream-100/85 hover:text-cream-50">{item.label}</a></li>
+        ))}
+        <li><a href="/randevu/" class="text-[15px] text-cream-100/85 hover:text-cream-50">Randevu</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="eyebrow text-sage-300">İletişim</p>
+      <ul class="mt-4 flex flex-col gap-2.5 text-[15px] text-cream-100/85">
+        <li><a href={`mailto:${site.email}`} class="hover:text-cream-50">{site.email}</a></li>
+        <li><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" class="hover:text-cream-50">WhatsApp ile yazın</a></li>
+        <li class="text-cream-100/70">{site.workingHours}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-cream-100/10">
+    <div class="container-page flex flex-col gap-3 py-6 text-[13px] text-cream-100/60 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {site.shortName}. Tüm hakları saklıdır.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/kvkk/" class="hover:text-cream-100">KVKK Aydınlatma Metni</a>
+        <a href="/gizlilik-politikasi/" class="hover:text-cream-100">Gizlilik Politikası</a>
+        <a href="/cerez-politikasi/" class="hover:text-cream-100">Çerez Politikası</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  from?: string;
+  to?: string;
+  flip?: boolean;
+}
+const { from = '#eef1e7', to = '#fbf6ec', flip = false } = Astro.props;
+---
+
+<div class:list={["w-full overflow-hidden", flip && 'rotate-180']} style={`background:${from}`} aria-hidden="true">
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="none" class="block h-[60px] w-full sm:h-[90px]">
+    <path
+      d="M0,40 C220,100 420,0 700,30 C980,60 1180,10 1440,55 L1440,110 L0,110 Z"
+      fill={to}
+    />
+  </svg>
+</div>

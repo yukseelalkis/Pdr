@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OrganicDivider from '../components/OrganicDivider.astro';
+import AreaCard from '../components/AreaCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { whatsappLink } from '../lib/site';
+import { getCollection } from 'astro:content';
+
+const areas = (await getCollection('alanlar')).sort((a, b) => a.data.order - b.data.order).slice(0, 4);
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const steps = [
+  {
+    title: 'Yazın veya Arayın',
+    text: 'WhatsApp, e-posta ya da iletişim formu üzerinden ulaşın; ihtiyacınızı kısaca paylaşın. [DÜZENLE]',
+  },
+  {
+    title: 'Ön Görüşme Planlanır',
+    text: 'Size uygun bir gün ve saat belirlenir; görüşme bağlantısı Zoom üzerinden gönderilir. [DÜZENLE]',
+  },
+  {
+    title: 'Online Görüşme',
+    text: 'Bulunduğunuz yerden, güvenli ve gizlilik ilkesine uygun bir ortamda görüşme gerçekleşir. [DÜZENLE]',
+  },
+  {
+    title: 'Süreç Birlikte Şekillenir',
+    text: 'İhtiyacınıza göre görüşme sıklığı ve süreç birlikte değerlendirilir, gözden geçirilir. [DÜZENLE]',
+  },
+];
+---
+
+<BaseLayout
+  title="Anasayfa"
+  description="Online psikolojik danışmanlık; Zoom üzerinden, bulunduğunuz yerden, gizlilik ilkesine uygun görüşmeler. [DÜZENLE]"
+>
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-sage-50">
+    <div class="container-page grid items-center gap-12 py-20 sm:py-28 md:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <p class="eyebrow">Online Psikolojik Danışmanlık</p>
+        <h1 class="mt-4 font-display text-[2.6rem] leading-[1.08] text-ink-900 sm:text-[3.4rem]">
+          Zorlandığınız yerden değil,
+          <span class="relative inline-block text-sage-700">
+            ilerlemek istediğiniz yerden
+            <svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M2 9C60 2 180 2 298 8" fill="none" stroke="#b7d3da" stroke-width="5" stroke-linecap="round" />
+            </svg>
+          </span>
+          başlayalım.
+        </h1>
+        <p class="mt-6 max-w-md text-lg leading-relaxed text-ink-700">
+          [DÜZENLE] Ben Psikolojik Danışman <span class="name-warm">Selcan Sarılmış</span>. Bulunduğunuz
+          yerden, Zoom üzerinden, kendi hızınızda ilerleyebileceğiniz online görüşmelerle yanınızdayım.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-4">
+          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            WhatsApp'tan Yazın
+          </a>
+          <a href="/iletisim/" class="btn-secondary">İletişim Formu</a>
+        </div>
+      </div>
+
+      <div class="relative mx-auto aspect-[4/5] w-full max-w-sm">
+        <div class="absolute inset-0 rounded-organic bg-sky-300/60"></div>
+        <img
+          src="/images/selcan-sarilmis.jpg"
+          alt="Psikolojik Danışman Selcan Sarılmış"
+          width="800"
+          height="1000"
+          loading="eager"
+          class="absolute inset-3 h-[calc(100%-1.5rem)] w-[calc(100%-1.5rem)] rounded-organic border border-cream-50/70 object-cover"
+        />
+      </div>
+    </div>
+  </section>
+  <OrganicDivider from="#eef1e7" to="#fbf6ec" />
+
+  <!-- KİMİM ÖZET -->
+  <section class="container-page py-20">
+    <div class="reveal grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-start">
+      <p class="eyebrow">Kısaca Ben</p>
+      <div>
+        <h2 class="font-display text-3xl text-ink-900 sm:text-4xl">
+          [DÜZENLE] Danışanlarımla güvenli, yargılamayan ve sıcak bir alan kurmaya önem veririm.
+        </h2>
+        <p class="mt-5 max-w-2xl text-[17px] leading-relaxed text-ink-700">
+          [DÜZENLE] Buraya kısa bir tanıtım metni yazın: eğitiminiz, çalışma yaklaşımınız ve
+          danışanlarınıza ne sunduğunuz. Detaylı biyografinizi Hakkımda sayfasında paylaşabilirsiniz.
+        </p>
+        <a href="/hakkimda/" class="mt-6 inline-flex items-center gap-1.5 text-[15px] font-semibold text-sage-700">
+          Hakkımda sayfasına göz atın
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DANIŞMANLIK ALANLARI -->
+  <section class="bg-sage-50 py-20">
+    <div class="container-page">
+      <div class="reveal max-w-xl">
+        <p class="eyebrow">Danışmanlık Alanlarım</p>
+        <h2 class="mt-3 font-display text-3xl text-ink-900 sm:text-4xl">İhtiyacınıza yakın bir başlangıç noktası</h2>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {areas.map((area, i) => (
+          <AreaCard
+            href={`/danismanlik-alanlarim/${area.id}/`}
+            title={area.data.title}
+            summary={area.data.summary}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <a href="/danismanlik-alanlarim/" class="btn-secondary mt-10 inline-flex">Tüm alanları gör</a>
+    </div>
+  </section>
+
+  <!-- SÜREÇ -->
+  <section class="container-page py-20">
+    <div class="reveal max-w-xl">
+      <p class="eyebrow">Nasıl Çalışıyorum</p>
+      <h2 class="mt-3 font-display text-3xl text-ink-900 sm:text-4xl">Görüşmeye başlamak dört basit adım</h2>
+    </div>
+    <ol class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step, i) => (
+        <li class="reveal">
+          <span class="font-display text-3xl text-sky-600">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="mt-3 font-display text-lg text-ink-900">{step.title}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-ink-700">{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- ZOOM AÇIKLAMA -->
+  <section class="bg-sky-700 py-20 text-cream-50">
+    <div class="container-page grid items-center gap-10 md:grid-cols-[1fr_1fr]">
+      <div class="reveal">
+        <p class="eyebrow text-sky-300">Tamamen Online</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl">Görüşmeler Zoom üzerinden gerçekleşir</h2>
+        <p class="mt-5 max-w-md text-[17px] leading-relaxed text-cream-50/85">
+          [DÜZENLE] Şehir veya ülke fark etmeden, güvenli bir bağlantı ve kulaklık ile katılmanız
+          yeterli. Görüşme bağlantısı, randevu onayından önce size iletilir.
+        </p>
+      </div>
+      <ul class="reveal grid gap-4 text-[15px] text-cream-50/90">
+        <li class="flex gap-3"><span aria-hidden="true">—</span> [DÜZENLE] Sabit bir internet bağlantısı ve sessiz bir ortam yeterlidir.</li>
+        <li class="flex gap-3"><span aria-hidden="true">—</span> [DÜZENLE] Görüşme bağlantısı yalnızca sizinle paylaşılır, kayıt alınmaz.</li>
+        <li class="flex gap-3"><span aria-hidden="true">—</span> [DÜZENLE] Telefon, tablet veya bilgisayardan katılabilirsiniz.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  {posts.length > 0 && (
+    <section class="container-page py-20">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-xl">
+          <p class="eyebrow">Blog</p>
+          <h2 class="mt-3 font-display text-3xl text-ink-900 sm:text-4xl">Son yazılar</h2>
+        </div>
+        <a href="/blog/" class="text-[15px] font-semibold text-sage-700">Tüm yazılar →</a>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <BlogCard
+            href={`/blog/${post.id}/`}
+            title={post.data.title}
+            excerpt={post.data.excerpt}
+            category={post.data.category}
+            readingTime={post.data.readingTime}
+            pubDate={post.data.pubDate}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- KAPANIŞ CTA -->
+  <section class="bg-sage-700 py-20 text-cream-50">
+    <div class="container-page reveal text-center">
+      <h2 class="font-display text-3xl sm:text-4xl">İlk adımı atmaya hazır olduğunuzda buradayım.</h2>
+      <p class="mx-auto mt-4 max-w-md text-[17px] text-cream-50/85">
+        [DÜZENLE] Kısa bir mesajla başlayabiliriz; size uygun bir saat birlikte belirleriz.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" class="btn-primary !bg-cream-50 !text-sage-700 hover:!bg-cream-100">
+          WhatsApp'tan Yazın
+        </a>
+        <a href="/iletisim/" class="btn-secondary !border-cream-50/40 !bg-transparent !text-cream-50 hover:!bg-cream-50/10">İletişim Formu</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { whatsappLink } from '../../lib/site';
+---
+
+<BaseLayout
+  title="Randevu"
+  description="Online randevu sistemi yakında aktif olacak. Şimdilik WhatsApp veya iletişim formu üzerinden ulaşabilirsiniz."
+>
+  <section class="container-page flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
+    <p class="eyebrow">Randevu</p>
+    <h1 class="mt-4 font-display text-4xl text-ink-900 sm:text-5xl">Online randevu sistemi yakında burada</h1>
+    <p class="mt-5 max-w-md text-lg leading-relaxed text-ink-700">
+      [DÜZENLE] Bu sayfa, ileride Zoom ile entegre bir randevu/takvim sistemi (örn. Calendly) için
+      ayrılmıştır. Şimdilik görüşme talebinizi WhatsApp veya iletişim formu üzerinden iletebilirsiniz.
+    </p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" class="btn-primary">WhatsApp'tan Yazın</a>
+      <a href="/iletisim/" class="btn-secondary">İletişim Formu</a>
+    </div>
+
+    <!-- [DÜZENLE] İleride buraya randevu/takvim widget'ı (örn. Calendly iframe) eklenecek. -->
+    <div class="mt-14 w-full max-w-xl rounded-[1.75rem] border border-dashed border-sand-300 bg-cream-50 p-10 text-sm text-ink-700/60" aria-hidden="true">
+      [DÜZENLE] Takvim / randevu widget alanı
+    </div>
+  </section>
+</BaseLayout>

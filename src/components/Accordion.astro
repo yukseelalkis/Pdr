@@ -1,0 +1,54 @@
+---
+interface Item {
+  q: string;
+  a: string;
+}
+interface Props {
+  items: Item[];
+  idPrefix?: string;
+}
+const { items, idPrefix = 'faq' } = Astro.props;
+---
+
+<div class="divide-y divide-sand-200">
+  {items.map((item, i) => (
+    <div class="accordion-item py-1">
+      <h3>
+        <button
+          type="button"
+          class="accordion-trigger flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left font-display text-lg text-ink-900"
+          aria-expanded="false"
+          aria-controls={`${idPrefix}-panel-${i}`}
+          id={`${idPrefix}-trigger-${i}`}
+        >
+          <span>{item.q}</span>
+          <svg class="accordion-icon h-5 w-5 shrink-0 text-sage-600 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+      </h3>
+      <div
+        id={`${idPrefix}-panel-${i}`}
+        role="region"
+        aria-labelledby={`${idPrefix}-trigger-${i}`}
+        class="accordion-panel hidden pb-5 pr-8 text-[15px] leading-relaxed text-ink-700"
+      >
+        {item.a}
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll('.accordion-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = panelId ? document.getElementById(panelId) : null;
+      const icon = btn.querySelector('.accordion-icon');
+      btn.setAttribute('aria-expanded', String(!expanded));
+      panel?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate-180');
+    });
+  });
+</script>

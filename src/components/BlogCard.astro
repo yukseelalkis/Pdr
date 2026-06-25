@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  readingTime: string;
+  pubDate: Date;
+}
+const { href, title, excerpt, category, readingTime, pubDate } = Astro.props;
+const formatted = pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<a href={href} class="card-surface reveal group flex flex-col gap-3 p-7 transition-transform duration-300 hover:-translate-y-1 cursor-pointer">
+  <span class="eyebrow">{category}</span>
+  <h3 class="font-display text-xl text-ink-900 group-hover:text-sage-700">{title}</h3>
+  <p class="text-[15px] leading-relaxed text-ink-700">{excerpt}</p>
+  <div class="mt-2 flex items-center gap-3 text-sm text-ink-700/70">
+    <span>{formatted}</span>
+    <span aria-hidden="true">·</span>
+    <span>{readingTime} okuma</span>
+  </div>
+</a>

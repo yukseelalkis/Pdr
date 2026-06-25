@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = ['Tümü', ...Array.from(new Set(allPosts.map((p) => p.data.category)))];
+---
+
+<BaseLayout title="Blog" description="Online psikolojik danışmanlık, gizlilik ve iyi oluş üzerine yazılar. [DÜZENLE]">
+  <section class="bg-sage-50 py-20">
+    <div class="container-page reveal max-w-2xl">
+      <p class="eyebrow">Blog</p>
+      <h1 class="mt-4 font-display text-4xl text-ink-900 sm:text-5xl">Yazılar</h1>
+      <p class="mt-5 text-lg leading-relaxed text-ink-700">[DÜZENLE] Online danışmanlık, gizlilik ve iyi oluş üzerine düzenli olarak yazıyorum.</p>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="flex flex-wrap gap-3" role="group" aria-label="Kategori filtrele">
+      {categories.map((cat) => (
+        <button
+          type="button"
+          class="filter-btn cursor-pointer rounded-full border border-sand-300 bg-cream-50 px-4 py-2 text-sm font-medium text-ink-700 transition-colors hover:border-sage-500 data-[active=true]:border-sage-600 data-[active=true]:bg-sage-600 data-[active=true]:text-cream-50"
+          data-category={cat}
+          data-active={cat === 'Tümü' ? 'true' : 'false'}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <div id="blog-grid" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {allPosts.map((post) => (
+        <div data-category={post.data.category} class="blog-item">
+          <BlogCard
+            href={`/blog/${post.id}/`}
+            title={post.data.title}
+            excerpt={post.data.excerpt}
+            category={post.data.category}
+            readingTime={post.data.readingTime}
+            pubDate={post.data.pubDate}
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const items = document.querySelectorAll<HTMLElement>('.blog-item');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.setAttribute('data-active', 'false'));
+      btn.setAttribute('data-active', 'true');
+      const category = btn.dataset.category;
+      items.forEach((item) => {
+        const show = category === 'Tümü' || item.dataset.category === category;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>

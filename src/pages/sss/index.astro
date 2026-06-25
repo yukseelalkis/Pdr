@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+
+const faqGroups = [
+  {
+    title: 'Online Danışmanlık',
+    items: [
+      { q: 'Online görüşmeler yüz yüze kadar etkili mi? [DÜZENLE]', a: '[DÜZENLE] Online psikolojik danışma, doğru koşullar sağlandığında etkili bir alternatiftir. Detayları ön görüşmede birlikte değerlendirebiliriz.' },
+      { q: 'Hangi platform kullanılıyor? [DÜZENLE]', a: '[DÜZENLE] Görüşmeler Zoom üzerinden yapılır; bağlantı, randevu onayından önce size iletilir.' },
+      { q: 'Teknik bir sorun yaşarsam ne olur? [DÜZENLE]', a: '[DÜZENLE] Bağlantı sorunlarında yedek bir iletişim kanalı (telefon/WhatsApp) üzerinden hızlıca ulaşılır.' },
+    ],
+  },
+  {
+    title: 'Gizlilik',
+    items: [
+      { q: 'Görüşmelerimiz gizli tutuluyor mu? [DÜZENLE]', a: '[DÜZENLE] Evet, tüm görüşmeler gizlilik ilkesi çerçevesinde yürütülür. Detaylar ön görüşmede paylaşılır.' },
+      { q: 'Verilerim nasıl saklanıyor? [DÜZENLE]', a: '[DÜZENLE] Kişisel verileriniz KVKK kapsamında, açık rızanız doğrultusunda işlenir. Detaylar için KVKK Aydınlatma Metnini inceleyebilirsiniz.' },
+    ],
+  },
+  {
+    title: 'Süreç ve Süre',
+    items: [
+      { q: 'Bir görüşme ne kadar sürer? [DÜZENLE]', a: '[DÜZENLE] Görüşmeler genellikle 45-50 dakika sürer.' },
+      { q: 'Kaç görüşme gerekir? [DÜZENLE]', a: '[DÜZENLE] Bu, ihtiyacınıza göre değişir; süreç birlikte düzenli olarak gözden geçirilir.' },
+      { q: 'Randevumu nasıl iptal edebilirim? [DÜZENLE]', a: '[DÜZENLE] Randevu değişikliklerini en az 24 saat öncesinde WhatsApp veya e-posta ile iletebilirsiniz.' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Sık Sorulan Sorular" description="Online psikolojik danışmanlık süreci hakkında sık sorulan sorular. [DÜZENLE]">
+  <section class="bg-sage-50 py-20">
+    <div class="container-page reveal max-w-2xl">
+      <p class="eyebrow">SSS</p>
+      <h1 class="mt-4 font-display text-4xl text-ink-900 sm:text-5xl">Sık Sorulan Sorular</h1>
+    </div>
+  </section>
+
+  <section class="container-page py-16">
+    <div class="mx-auto max-w-2xl space-y-12">
+      {faqGroups.map((group) => (
+        <div class="reveal">
+          <h2 class="font-display text-2xl text-ink-900">{group.title}</h2>
+          <div class="mt-2">
+            <Accordion items={group.items} idPrefix={group.title} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,143 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ---------------------------------------------------------------
+   Tasarım token sistemi
+   Palet: sıcak adaçağı yeşili (marka) + krem (zemin) + toz gök
+   mavisi (vurgu) + sıcak kum (ayraç/nötr). "Hastane" hissinden
+   kaçınmak için ton sıcak ve doygunluğu düşük tutuldu.
+   ----------------------------------------------------------------- */
+@theme {
+  --font-display: "Fraunces", "ui-serif", "Georgia", serif;
+  --font-body: "Figtree", "ui-sans-serif", "system-ui", sans-serif;
+
+  --color-sage-50: #eef1e7;
+  --color-sage-100: #dde3cd;
+  --color-sage-300: #aab896;
+  --color-sage-500: #7c8d68;
+  --color-sage-600: #647450;
+  --color-sage-700: #4f5c3f;
+  --color-sage-900: #333c29;
+
+  --color-cream-50: #fffdf9;
+  --color-cream-100: #fbf6ec;
+  --color-cream-200: #f4ecd9;
+
+  --color-sand-200: #ecdfc4;
+  --color-sand-300: #ddc9a3;
+
+  --color-sky-300: #b7d3da;
+  --color-sky-500: #6e96a8;
+  --color-sky-600: #557a8c;
+  --color-sky-700: #3f5e6e;
+
+  --color-ink-700: #3a362c;
+  --color-ink-900: #2a271f;
+
+  --radius-organic: 2.5rem 1rem 2.5rem 1rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-cream-100 text-ink-900 font-body antialiased;
+    font-size: 17px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink-900;
+    font-feature-settings: "ss01";
+  }
+
+  ::selection {
+    background-color: var(--color-sky-300);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-sky-600);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-body text-sm font-semibold uppercase tracking-[0.14em] text-sage-600;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 px-6 py-3.5
+      font-body text-[15px] font-semibold text-cream-50 shadow-[0_8px_24px_-8px_rgba(100,116,80,0.55)]
+      transition-colors duration-200 hover:bg-sage-700 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-sage-300 bg-cream-50 px-6 py-3.5
+      font-body text-[15px] font-semibold text-sage-700 transition-colors duration-200
+      hover:border-sage-500 hover:bg-sage-50 cursor-pointer;
+  }
+
+  .card-surface {
+    @apply rounded-[1.75rem] border border-sand-200/70 bg-cream-50 shadow-[0_18px_40px_-28px_rgba(58,54,44,0.35)];
+  }
+
+  /* Kişisel isim için sıcak, el yazısı hissi veren imza tipografisi */
+  .name-warm {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .prose :where(h2, h3, h4) {
+    @apply font-display text-ink-900;
+  }
+
+  .prose :where(a) {
+    @apply text-sage-700 underline-offset-2;
+  }
+
+  .prose :where(strong) {
+    @apply text-ink-900;
+  }
+}
