@@ -4,31 +4,31 @@ import OrganicDivider from '../../components/OrganicDivider.astro';
 import { whatsappLink } from '../../lib/site';
 
 const credentials = [
-  '[DÜZENLE] Lisans, Psikoloji / Psikolojik Danışmanlık ve Rehberlik — [Üniversite Adı], [Yıl]',
-  '[DÜZENLE] Sertifika programı — [Program Adı], [Kurum], [Yıl]',
-  '[DÜZENLE] Sertifika programı — [Program Adı], [Kurum], [Yıl]',
-  '[DÜZENLE] Üyelik — [Meslek Odası / Dernek Adı]',
+  'Lisans, Psikolojik Danışmanlık ve Rehberlik (PDR) — Muğla Sıtkı Koçman Üniversitesi, 2025',
+  'Rehber Öğretmen / Psikolojik Danışman — Sınav Hazırlık Kurs Merkezi (Ağustos 2025 – devam ediyor)',
+  '300\'den fazla öğrenciyle sınav kaygısı, öğrenci rehberliği ve çalışma süreci yönetimi üzerine birebir çalışma deneyimi',
+  '[DÜZENLE — varsa sertifika adı ve yılı]',
 ];
 
 const approach = [
   {
     title: 'Şeffaflık',
-    text: '[DÜZENLE] Süreç hakkında ne bekleyebileceğinizi en başından açıkça paylaşırım.',
+    text: 'Sürecin nasıl ilerleyeceğini en baştan birlikte konuşuruz. Görüşme sıklığı, üzerinde çalışacağımız konular ve neler bekleyebileceğiniz konusunda açık olmaya özen gösteririm. Belirsizlik değil, netlik güven oluşturur.',
   },
   {
-    title: 'Gizlilik',
-    text: '[DÜZENLE] Görüşmelerde paylaşılan her şey gizlilik ilkesi çerçevesinde korunur.',
+    title: 'Gizlilik ve Güven',
+    text: 'Görüşmelerde paylaştıklarınız gizlilik ilkesi çerçevesinde korunur. Hiçbir konuyu yargılamadan dinlerim; kendinizi olduğunuz gibi ifade edebileceğiniz, güvenli bir alan oluşturmaya öncelik veririm.',
   },
   {
-    title: 'Sizin Hızınız',
-    text: '[DÜZENLE] Süreç size dayatılmaz; birlikte, sizin hızınızda ilerler.',
+    title: 'Sizin Yolunuz',
+    text: 'Size hazır çözümler dayatmam. Doğru soruları sorarak, kendi gücünüzü ve size uygun yolu birlikte keşfederiz. Süreç sizin hızınızda, sizin ihtiyaçlarınıza göre şekillenir.',
   },
 ];
 ---
 
 <BaseLayout
   title="Hakkımda"
-  description="Psikolojik Danışman Selcan Sarılmış hakkında: eğitim, sertifikalar ve danışmanlık yaklaşımı. [DÜZENLE]"
+  description="Psikolojik Danışman Selcan Sarılmış. Muğla Sıtkı Koçman Üniversitesi PDR mezunu. Sınav kaygısı, öğrenci rehberliği ve kariyer danışmanlığında 300'den fazla öğrenciyle çalışma deneyimi. Online psikolojik danışmanlık."
 >
   <section class="bg-sage-50">
     <div class="container-page grid items-center gap-12 py-20 md:grid-cols-[0.9fr_1.1fr]">
@@ -49,8 +49,8 @@ const approach = [
           Psikolojik Danışman <span class="name-warm">Selcan Sarılmış</span>
         </h1>
         <p class="mt-6 max-w-md text-lg leading-relaxed text-ink-700">
-          [DÜZENLE] Kısa, sıcak bir tanıtım cümlesiyle başlayın — kim olduğunuz ve danışanlarınıza
-          ne sunduğunuz hakkında.
+          Sınav kaygısı, öğrenci rehberliği ve kariyer danışmanlığı üzerine, online olarak
+          yargılamadan dinlediğim güvenli bir alanda yanınızdayım.
         </p>
       </div>
     </div>
@@ -60,15 +60,36 @@ const approach = [
   <!-- BİYOGRAFİ -->
   <section class="container-page py-20">
     <div class="reveal grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-start">
-      <p class="eyebrow">Biyografi</p>
+      <div>
+        <p class="eyebrow">Biyografi</p>
+        <h2 class="mt-3 font-display text-3xl text-ink-900 sm:text-4xl">Kim olduğumu kısaca tanıyın</h2>
+        <p class="mt-5 max-w-xs text-[15px] leading-relaxed text-ink-700/80">
+          Sınav kaygısından öğrenci rehberliğine, her görüşmede yargılamadan dinlemeyi ve
+          güvenli bir alan kurmayı önceliklendiriyorum.
+        </p>
+      </div>
       <div class="max-w-2xl space-y-5 text-[17px] leading-relaxed text-ink-700">
         <p>
-          [DÜZENLE] Buraya kendi hikayenizi yazın: bu alana neden yöneldiniz, hangi konularda
-          çalışıyorsunuz ve danışanlarınızla nasıl bir ilişki kurmaya önem veriyorsunuz.
+          Merhaba, ben Psikolojik Danışman Selcan Sarılmış. Muğla Sıtkı Koçman Üniversitesi
+          Psikolojik Danışmanlık ve Rehberlik (PDR) bölümünden 2025 yılında mezun oldum.
+          Mezuniyetimin ardından, Ağustos 2025'ten bu yana bir sınav hazırlık kurs merkezinde
+          rehber öğretmen olarak görev yapıyorum.
         </p>
         <p>
-          [DÜZENLE] İsterseniz eğitim sürecinizden, mesleki deneyiminizden veya online
-          danışmanlığa neden önem verdiğinizden bahsedebilirsiniz.
+          Bu süreçte 300'den fazla öğrenci ile birebir çalışma fırsatı buldum. Sınav
+          dönemlerinin getirdiği kaygı, motivasyon dalgalanmaları, çalışma düzeni kurma ve
+          sınav sürecini yönetme konularında öğrencilere ve ailelerine rehberlik ettim. Bu
+          deneyim bana, her öğrencinin kendine özgü bir hikâyesi olduğunu ve doğru rehberlikle
+          önündeki engellerin aşılabilir hale geldiğini gösterdi.
+        </p>
+        <p>
+          Danışmanlık anlayışımın temelinde yargılamadan dinlemek, güvenli bir alan oluşturmak
+          ve danışanın kendi gücünü fark etmesine eşlik etmek yer alıyor. Görüşmelerimi tamamen
+          online olarak, Zoom üzerinden yürütüyorum; böylece nerede olursanız olun, size uygun
+          bir ortamda destek alabilirsiniz.
+        </p>
+        <p>
+          Birlikte çalışmaya hazır olduğunuzda, iletişim bölümünden bana ulaşabilirsiniz.
         </p>
       </div>
     </div>

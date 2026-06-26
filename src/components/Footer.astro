@@ -2,10 +2,19 @@
 import { nav, site, whatsappLink } from '../lib/site';
 
 const year = new Date().getFullYear();
+
+// TODO: yönlendirmeler (href) yapılacak — şimdilik "#" olarak duruyor.
+const services = [
+  'Sınav Kaygısı + Öğrenci/Kariyer',
+  'İlişki / Çift / Evlilik',
+  'Bireysel Yetişkin (Stres / Özgüven)',
+  'Ebeveyn / Çocuk-Ergen Rehberliği',
+  'Kariyer / Meslek Danışmanlığı',
+];
 ---
 
 <footer class="mt-24 border-t border-sand-200/70 bg-sage-900 text-cream-100">
-  <div class="container-page grid gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr]">
+  <div class="container-page grid gap-12 py-16 md:grid-cols-[1.1fr_1fr_1fr_1fr]">
     <div>
       <p class="name-warm text-2xl">{site.shortName}</p>
       <p class="mt-1 text-sm uppercase tracking-[0.16em] text-sage-300">Psikolojik Danışman, PDR</p>
@@ -36,6 +45,15 @@ const year = new Date().getFullYear();
           <li><a href={item.href} class="text-[15px] text-cream-100/85 hover:text-cream-50">{item.label}</a></li>
         ))}
         <li><a href="/randevu/" class="text-[15px] text-cream-100/85 hover:text-cream-50">Randevu</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="eyebrow text-sage-300">Danışmanlık Alanları</p>
+      <ul class="mt-4 flex flex-col gap-2.5">
+        {services.map((item) => (
+          <li><a href="#" class="text-[15px] text-cream-100/85 hover:text-cream-50">{item}</a></li>
+        ))}
       </ul>
     </div>
 
