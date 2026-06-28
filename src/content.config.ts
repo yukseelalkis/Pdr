@@ -20,9 +20,14 @@ const alanlar = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
+    metaTitle: z.string().optional(),
+    metaDescription: z.string().optional(),
     order: z.number().default(0),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
     forWho: z.array(z.string()),
     process: z.array(z.string()),
+    whyOnline: z.array(z.object({ title: z.string(), text: z.string() })).optional(),
     faq: z.array(z.object({ q: z.string(), a: z.string() })),
   }),
 });

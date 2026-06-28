@@ -16,19 +16,19 @@ const posts = (await getCollection('blog'))
 const steps = [
   {
     title: 'Yazın veya Arayın',
-    text: 'WhatsApp, e-posta ya da iletişim formu üzerinden ulaşın; ihtiyacınızı kısaca paylaşın. [DÜZENLE]',
+    text: 'WhatsApp, e-posta ya da iletişim formu üzerinden bana ulaşın; yaşadığınız durumu ve ihtiyacınızı kısaca paylaşın.',
   },
   {
     title: 'Ön Görüşme Planlanır',
-    text: 'Size uygun bir gün ve saat belirlenir; görüşme bağlantısı Zoom üzerinden gönderilir. [DÜZENLE]',
+    text: 'Size uygun bir gün ve saat birlikte belirlenir; görüşme bağlantısı Zoom üzerinden önceden iletilir.',
   },
   {
     title: 'Online Görüşme',
-    text: 'Bulunduğunuz yerden, güvenli ve gizlilik ilkesine uygun bir ortamda görüşme gerçekleşir. [DÜZENLE]',
+    text: 'Bulunduğunuz yerden, güvenli ve gizliliğe önem veren bir ortamda, Zoom üzerinden görüşmemizi gerçekleştiririz.',
   },
   {
     title: 'Süreç Birlikte Şekillenir',
-    text: 'İhtiyacınıza göre görüşme sıklığı ve süreç birlikte değerlendirilir, gözden geçirilir. [DÜZENLE]',
+    text: 'Görüşme sıklığı ve ilerleme ihtiyacınıza göre birlikte değerlendirilir; süreç sizin hızınızda gözden geçirilir.',
   },
 ];
 ---
@@ -120,16 +120,18 @@ const steps = [
     <div class="container-page grid items-center gap-10 md:grid-cols-[1fr_1fr]">
       <div class="reveal">
         <p class="eyebrow text-sky-300">Tamamen Online</p>
-        <h2 class="mt-3 font-display text-3xl sm:text-4xl">Görüşmeler Zoom üzerinden gerçekleşir</h2>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl">Online psikolojik danışmanlık kime uygun?</h2>
         <p class="mt-5 max-w-md text-[17px] leading-relaxed text-cream-50/85">
-          [DÜZENLE] Şehir veya ülke fark etmeden, güvenli bir bağlantı ve kulaklık ile katılmanız
-          yeterli. Görüşme bağlantısı, randevu onayından önce size iletilir.
+          Online psikolojik danışmanlık; yoğun çalışan, farklı bir şehirde ya da yurt dışında
+          yaşayan, ulaşım veya zaman kısıtı olan herkes için erişilebilir bir destek yoludur.
+          Birçok kişi için, kendi evinin rahatlığından katılmak; daha açık, daha güvende ve
+          daha verimli bir görüşme deneyimi sağlar.
         </p>
       </div>
       <ul class="reveal grid gap-4 text-[15px] text-cream-50/90">
-        <li class="flex gap-3"><span aria-hidden="true">—</span> [DÜZENLE] Sabit bir internet bağlantısı ve sessiz bir ortam yeterlidir.</li>
-        <li class="flex gap-3"><span aria-hidden="true">—</span> [DÜZENLE] Görüşme bağlantısı yalnızca sizinle paylaşılır, kayıt alınmaz.</li>
-        <li class="flex gap-3"><span aria-hidden="true">—</span> [DÜZENLE] Telefon, tablet veya bilgisayardan katılabilirsiniz.</li>
+        <li class="flex gap-3"><span aria-hidden="true">—</span> Ulaşım, trafik ve zaman kaybı olmadan; size en uygun saatte görüşürsünüz.</li>
+        <li class="flex gap-3"><span aria-hidden="true">—</span> Tanıdık ve güvenli bir ortamdan katılmak, kendinizi daha rahat ifade etmenizi kolaylaştırır.</li>
+        <li class="flex gap-3"><span aria-hidden="true">—</span> Sınav kaygısından ilişki konularına kadar pek çok başlıkta online görüşmeler yüz yüze kadar verimli olabilir.</li>
       </ul>
     </div>
   </section>
@@ -164,7 +166,9 @@ const steps = [
     <div class="container-page reveal text-center">
       <h2 class="font-display text-3xl sm:text-4xl">İlk adımı atmaya hazır olduğunuzda buradayım.</h2>
       <p class="mx-auto mt-4 max-w-md text-[17px] text-cream-50/85">
-        [DÜZENLE] Kısa bir mesajla başlayabiliriz; size uygun bir saat birlikte belirleriz.
+        Online psikolojik danışmanlık için kısa bir mesaj yeterli. Sınav kaygısı, ilişki ya da
+        kişisel gelişim; hangi konuda destek arıyorsanız, size uygun bir görüşme saatini birlikte
+        belirleriz.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" class="btn-primary !bg-cream-50 !text-sage-700 hover:!bg-cream-100">

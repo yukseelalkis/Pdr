@@ -4,10 +4,11 @@ export const site = {
   title: 'Psikolojik Danışman Selcan Sarılmış | Online Psikolojik Danışmanlık',
   description:
     'Online psikolojik danışmanlık ile, bulunduğunuz yerden Zoom üzerinden güvenli ve gizlilik ilkesine uygun görüşmeler. [DÜZENLE]',
-  email: 'iletisim@ornek-danismanlik.com', // [DÜZENLE]
+  email: 'selcansarilmis11@gmail.com',
   whatsapp: '905373529369',
   whatsappDisplay: '+90 537 352 93 69',
   instagram: 'https://www.instagram.com/selcannsarilmiss?igsh=MWQwNWo5OGNpbnJyeQ==',
+  linkedin: 'https://www.linkedin.com/in/selcan-sar%C4%B1lm%C4%B1%C5%9F-359779372/',
   workingHours: 'Hafta içi 09:00–18:00 (Online görüşme, Zoom)', // [DÜZENLE]
 };
 
