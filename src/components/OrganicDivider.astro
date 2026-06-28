@@ -3,14 +3,19 @@ interface Props {
   from?: string;
   to?: string;
   flip?: boolean;
+  overlap?: boolean;
 }
-const { from = '#eef1e7', to = '#fbf6ec', flip = false } = Astro.props;
+const { from, to = '#fbf6ec', flip = false, overlap = false } = Astro.props;
 ---
 
-<div class:list={["w-full overflow-hidden", flip && 'rotate-180']} style={`background:${from}`} aria-hidden="true">
-  <svg viewBox="0 0 1440 110" preserveAspectRatio="none" class="block h-[60px] w-full sm:h-[90px]">
+<div
+  class:list={['relative z-10 w-full overflow-hidden', flip && 'rotate-180', overlap ? '-mt-16 sm:-mt-[110px] md:-mt-[130px]' : '-mt-px']}
+  style={!overlap && from ? `background:${from}` : undefined}
+  aria-hidden="true"
+>
+  <svg viewBox="0 0 1440 140" preserveAspectRatio="none" class="block h-[64px] w-full sm:h-[110px] md:h-[130px]">
     <path
-      d="M0,40 C220,100 420,0 700,30 C980,60 1180,10 1440,55 L1440,110 L0,110 Z"
+      d="M0,58 C180,118 360,8 620,46 C880,84 1040,18 1260,52 C1340,64 1400,72 1440,68 L1440,140 L0,140 Z"
       fill={to}
     />
   </svg>

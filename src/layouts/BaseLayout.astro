@@ -10,9 +10,10 @@ interface Props {
   title: string;
   description: string;
   noIndex?: boolean;
+  transparentHeader?: boolean;
 }
 
-const { title, description, noIndex } = Astro.props;
+const { title, description, noIndex, transparentHeader = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,7 +25,7 @@ const { title, description, noIndex } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Figtree:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Figtree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <SEO title={title} description={description} noIndex={noIndex} />
@@ -36,7 +37,7 @@ const { title, description, noIndex } = Astro.props;
     >
       İçeriğe geç
     </a>
-    <Header />
+    <Header transparent={transparentHeader} />
     <main id="main-content" class="flex-1">
       <slot />
     </main>

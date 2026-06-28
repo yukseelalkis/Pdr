@@ -140,4 +140,60 @@
   .prose :where(strong) {
     @apply text-ink-900;
   }
+
+  /* Transparan header (atmosferik hero üzerinde) — scroll ile katı zemine geçer.
+     Bilerek Tailwind renk utility'leri yerine kendi sınıflarımızı kullanıyoruz:
+     v4'te utilities layer her zaman components layer'ı ezer, JS ile sınıf
+     ekleyip çıkarmak yerine tek noktadan rengi değiştirmek için. */
+  .transparent-header {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .transparent-header .hdr-fg {
+    color: #fff;
+  }
+
+  .transparent-header .hdr-border {
+    border-color: rgba(255, 255, 255, 0.55);
+  }
+
+  .transparent-header.is-solid {
+    background: color-mix(in srgb, var(--color-cream-100) 92%, transparent);
+    backdrop-filter: blur(12px);
+    border-color: var(--color-sand-200);
+  }
+
+  .transparent-header.is-solid .hdr-fg {
+    color: var(--color-ink-900);
+  }
+
+  .transparent-header.is-solid .hdr-fg.hdr-fg-muted {
+    color: var(--color-sage-600);
+  }
+
+  .transparent-header.is-solid .hdr-border {
+    border-color: var(--color-sand-300);
+  }
+
+  .hero-fade-in {
+    animation: hero-fade-in 1.1s ease-out both;
+  }
+
+  @keyframes hero-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-fade-in {
+      animation: none;
+    }
+  }
 }
