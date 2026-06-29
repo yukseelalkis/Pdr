@@ -141,6 +141,105 @@
     @apply text-ink-900;
   }
 
+  .prose :where(blockquote) {
+    @apply my-9 border-l-2 border-sage-500 pl-6 font-display text-[1.4rem] not-italic leading-snug text-ink-900;
+    border-left-style: solid;
+  }
+
+  .prose :where(blockquote p) {
+    @apply m-0;
+  }
+
+  .prose :where(blockquote p)::before,
+  .prose :where(blockquote p)::after {
+    content: "" !important;
+  }
+
+  .prose :where(table) {
+    @apply w-full overflow-hidden text-[15px];
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--color-sand-200);
+    border-radius: 1.25rem;
+  }
+
+  .prose :where(thead th) {
+    @apply bg-sage-50 font-display text-sm font-semibold text-sage-700;
+    padding: 0.85rem 1.1rem;
+  }
+
+  .prose :where(tbody td) {
+    @apply text-ink-700;
+    padding: 0.85rem 1.1rem;
+    border-top: 1px solid var(--color-sand-200);
+  }
+
+  .prose :where(tbody tr:hover td) {
+    background: var(--color-cream-100);
+  }
+
+  /* Blog yazısı içinde öne çıkan istatistikler: uzun metni bölen görsel durak noktaları */
+  .stat-strip {
+    @apply my-10 grid gap-4 sm:grid-cols-3;
+  }
+
+  .stat-card {
+    @apply rounded-[1.75rem] border border-sand-200/70 bg-sage-50/60 px-5 py-6 text-center shadow-[0_18px_40px_-28px_rgba(58,54,44,0.35)];
+  }
+
+  .stat-number {
+    @apply font-display text-4xl text-sage-700;
+  }
+
+  .stat-label {
+    @apply mt-2 text-[13.5px] leading-snug text-ink-700/85;
+  }
+
+  /* SSS akordeonu: native details/summary, JS gerektirmez */
+  .faq-accordion {
+    @apply flex flex-col gap-3;
+  }
+
+  .faq-item {
+    @apply rounded-[1.75rem] border border-sand-200/70 bg-cream-50 px-5 py-4 shadow-[0_18px_40px_-28px_rgba(58,54,44,0.35)];
+  }
+
+  .faq-item summary {
+    @apply flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg text-ink-900;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    @apply shrink-0 font-body text-2xl font-light text-sage-600 transition-transform duration-200;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-item p {
+    @apply mt-3 text-[15px] leading-relaxed text-ink-700;
+  }
+
+  /* Okuma ilerleme çubuğu */
+  .reading-progress {
+    @apply fixed left-0 top-0 z-[60] h-[3px] w-full origin-left scale-x-0 bg-sage-600;
+    transition: transform 0.1s linear;
+  }
+
+  /* Sticky içindekiler — scrollspy ile aktif başlık vurgusu */
+  .toc-link {
+    @apply block border-l-2 border-transparent py-1.5 pl-4 text-[13.5px] leading-snug text-ink-700/75 transition-colors duration-150 hover:text-sage-700;
+  }
+
+  .toc-link.is-active {
+    @apply border-sage-600 font-semibold text-sage-700;
+  }
+
   /* Transparan header (atmosferik hero üzerinde) — scroll ile katı zemine geçer.
      Bilerek Tailwind renk utility'leri yerine kendi sınıflarımızı kullanıyoruz:
      v4'te utilities layer her zaman components layer'ı ezer, JS ile sınıf

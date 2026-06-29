@@ -43,6 +43,8 @@ const categories = ['Tümü', ...Array.from(new Set(allPosts.map((p) => p.data.c
             category={post.data.category}
             readingTime={post.data.readingTime}
             pubDate={post.data.pubDate}
+            image={post.data.image}
+            imageAlt={post.data.imageAlt}
           />
         </div>
       ))}

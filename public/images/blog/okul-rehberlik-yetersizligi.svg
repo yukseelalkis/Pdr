@@ -1,0 +1,122 @@
+<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kalabalık bir sınıftan tek bir öğrenciye uzanan, online danışmanlığı simgeleyen sıcak bir bağlantı çizgisi illüstrasyonu">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffdf9" />
+      <stop offset="100%" stop-color="#f4ecd9" />
+    </linearGradient>
+    <linearGradient id="thread" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#aab896" />
+      <stop offset="100%" stop-color="#647450" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#eef1e7" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#eef1e7" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)" />
+
+  <!-- faint crowded classroom: many small muted heads, fading toward the left -->
+  <g opacity="0.55">
+    <g fill="none" stroke="#ddc9a3" stroke-width="2">
+      <!-- grid of small figures -->
+      <g transform="translate(70,90)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(150,70)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(230,100)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(100,170)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(190,190)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(270,170)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(60,260)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(150,280)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(240,260)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(110,350)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(200,370)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(290,350)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(75,440)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(165,455)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+      <g transform="translate(255,440)">
+        <circle cx="0" cy="0" r="14" />
+        <path d="M -20 48 Q 0 18 20 48" />
+      </g>
+    </g>
+  </g>
+
+  <!-- one figure detaches from the crowd: slightly larger, warmer outline -->
+  <g transform="translate(330,300)">
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#7c8d68" stroke-width="3" />
+    <path d="M -28 64 Q 0 26 28 64" fill="none" stroke="#7c8d68" stroke-width="3" />
+  </g>
+
+  <!-- warm connecting thread from the detached figure to the laptop -->
+  <path d="M 360 320 C 480 250, 600 200, 720 250" fill="none" stroke="url(#thread)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 14" />
+
+  <!-- glow behind laptop -->
+  <circle cx="860" cy="360" r="240" fill="url(#glow)" />
+
+  <!-- laptop: video call window -->
+  <g transform="translate(720,250)">
+    <rect x="0" y="0" width="280" height="180" rx="14" fill="#fbf6ec" stroke="#ddc9a3" stroke-width="3" />
+    <rect x="16" y="16" width="248" height="148" rx="8" fill="#eef1e7" />
+
+    <!-- counselor on screen, warm and present -->
+    <circle cx="140" cy="78" r="30" fill="#aab896" />
+    <path d="M 96 150 Q 140 96 184 150 Z" fill="#aab896" />
+
+    <!-- small "connected" indicator -->
+    <circle cx="232" cy="40" r="6" fill="#647450" />
+
+    <!-- laptop base -->
+    <path d="M -16 180 L 296 180 L 280 196 L 0 196 Z" fill="#ecdfc4" stroke="#ddc9a3" stroke-width="2" />
+  </g>
+
+  <!-- small warm dot marking arrival point of the thread -->
+  <circle cx="720" cy="250" r="7" fill="#4f5c3f" />
+
+  <!-- soft caption-like accent shapes, no real text per design guidance -->
+  <g opacity="0.5">
+    <rect x="900" y="500" width="64" height="6" rx="3" fill="#aab896" />
+    <rect x="900" y="516" width="40" height="6" rx="3" fill="#ddc9a3" />
+  </g>
+</svg>

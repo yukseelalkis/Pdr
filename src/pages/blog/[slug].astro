@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -11,11 +12,20 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const formatted = post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const toc = headings.filter((h) => h.depth === 2);
+
+const related = (await getCollection('blog'))
+  .filter((p) => !p.data.draft && p.id !== post.id)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.excerpt}>
+  <div class="reading-progress" id="reading-progress"></div>
+
   <article>
     <header class="bg-sage-50 py-16">
       <div class="container-page max-w-2xl">
@@ -35,10 +45,112 @@ const formatted = post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric'
       </div>
     </header>
 
+    {post.data.image && (
+      <div class="container-page -mt-10 sm:-mt-14">
+        <div class="mx-auto max-w-3xl overflow-hidden rounded-[1.75rem] border border-sand-200/70 shadow-[0_18px_40px_-28px_rgba(58,54,44,0.35)]">
+          <img
+            src={post.data.image}
+            alt={post.data.imageAlt ?? ''}
+            class="aspect-[16/9] w-full object-cover"
+          />
+        </div>
+      </div>
+    )}
+
     <div class="container-page py-16">
-      <div class="prose prose-lg mx-auto max-w-2xl text-ink-700">
-        <Content />
+      <div class="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1fr_220px] lg:items-start lg:gap-16">
+        <div class="prose prose-lg max-w-2xl text-ink-700" id="article-body">
+          <Content />
+        </div>
+
+        {toc.length > 2 && (
+          <aside class="hidden lg:block">
+            <nav class="sticky top-28" aria-label="İçindekiler">
+              <p class="eyebrow text-xs">İçindekiler</p>
+              <ul class="mt-4 border-l border-sand-200">
+                {toc.map((h) => (
+                  <li>
+                    <a href={`#${h.slug}`} class="toc-link" data-toc-target={h.slug}>{h.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )}
+      </div>
+    </div>
+
+    <div class="container-page pb-20">
+      <div class="card-surface mx-auto flex max-w-2xl flex-col items-start gap-4 bg-sage-50/60 p-8 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="font-display text-xl text-ink-900">Bir ön görüşme planlamak ister misiniz?</p>
+          <p class="mt-1 text-sm text-ink-700/80">Çocuğunuz için bireysel ve düzenli destek, ilk adımdan başlar.</p>
+        </div>
+        <a href="/randevu/" class="btn-primary shrink-0">Randevu Al</a>
       </div>
     </div>
   </article>
+
+  {related.length > 0 && (
+    <section class="border-t border-sand-200/70 bg-sage-50/40 py-16">
+      <div class="container-page">
+        <p class="eyebrow">Devam edin</p>
+        <h2 class="mt-3 font-display text-2xl text-ink-900 sm:text-3xl">İlgili yazılar</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {related.map((p) => (
+            <BlogCard
+              href={`/blog/${p.id}/`}
+              title={p.data.title}
+              excerpt={p.data.excerpt}
+              category={p.data.category}
+              readingTime={p.data.readingTime}
+              pubDate={p.data.pubDate}
+              image={p.data.image}
+              imageAlt={p.data.imageAlt}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>
+
+<script>
+  const bar = document.getElementById('reading-progress');
+  const article = document.getElementById('article-body');
+
+  function updateProgress() {
+    if (!bar || !article) return;
+    const rect = article.getBoundingClientRect();
+    const total = rect.height - window.innerHeight + rect.top;
+    const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
+    const ratio = total > 0 ? scrolled / total : 0;
+    bar.style.transform = `scaleX(${ratio})`;
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  const tocLinks = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+  if (tocLinks.length) {
+    const headingEls = Array.from(tocLinks)
+      .map((link) => document.getElementById(link.dataset.tocTarget ?? ''))
+      .filter((el): el is HTMLElement => !!el);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const link = document.querySelector(`.toc-link[data-toc-target="${entry.target.id}"]`);
+          if (entry.isIntersecting) {
+            tocLinks.forEach((l) => l.classList.remove('is-active'));
+            link?.classList.add('is-active');
+          }
+        });
+      },
+      { rootMargin: '-15% 0px -70% 0px' }
+    );
+
+    headingEls.forEach((el) => io.observe(el));
+  }
+</script>

@@ -11,6 +11,8 @@ const blog = defineCollection({
     category: z.string(),
     authorName: z.string().default('Psikolojik Danışman Selcan Sarılmış'),
     authorTitle: z.string().default('Psikolojik Danışman, PDR'),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
