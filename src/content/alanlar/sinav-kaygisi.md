@@ -1,8 +1,8 @@
 ---
 title: "Sınav Kaygısı Danışmanlığı"
 summary: "Sınav öncesi yoğun gerginlik, \"bildiğimi unutuyorum\" hissi ve uyku düzensizliği yaşıyorsanız yalnız değilsiniz. Online sınav kaygısı danışmanlığı ile YKS, LGS ve diğer sınav süreçlerinde kaygıyı yönetmeyi, motivasyonu ve odaklanmayı güçlendirmeyi birlikte çalışıyoruz."
-metaTitle: "Online Sınav Kaygısı Danışmanlığı | Psikolojik Danışman"
-metaDescription: "Sınav kaygısı nedir, belirtileri nelerdir ve nasıl yönetilir? YKS-LGS sürecinde online psikolojik danışmanlık ile kaygıyı yönetmeyi birlikte öğrenelim."
+metaTitle: "Online Sınav Kaygısı Danışmanlığı | YKS LGS Desteği"
+metaDescription: "Sınav kaygısı nedir, belirtileri nelerdir ve nasıl yönetilir? Selcan Sarılmış ile YKS-LGS sürecinde online danışmanlık; kaygıyı yönetmeyi birlikte öğrenelim."
 image: "/images/sinav-kaygisi.jpeg"
 imageAlt: "Sınav kaygısı için online psikolojik danışmanlık"
 order: 1
@@ -42,6 +42,8 @@ faq:
 
 Sınava hazırlanan bir öğrenci için en zorlayıcı an genellikle sınav sırasında, çalıştığı konuyu "bildiği halde hatırlayamadığı" andır. Bu deneyimin adı **sınav kaygısıdır** — ve düşünülenin aksine, yalnızca motivasyon veya çalışma eksikliğiyle açıklanamaz.
 
+Psikolojik Danışman **Selcan Sarılmış**, 300'den fazla öğrenciyle sınav kaygısı ve sınav süreci yönetimi üzerine birebir çalışma deneyimiyle, online danışmanlık sürecinde bu konuya özel rehberlik sunuyor.
+
 ## Sınav Kaygısı Nedir?
 
 Sınav kaygısı, bir sınav öncesinde veya sırasında ortaya çıkan; bedensel, duygusal ve düşünsel düzeyde yaşanan yoğun gerginlik halidir. Belirli bir düzeyde kaygı normaldir ve hatta odaklanmayı destekleyebilir. Ancak kaygı belirli bir eşiği aştığında, öğrencinin bildiği bilgiye erişimini ve sınav performansını olumsuz etkileyebilir.
@@ -72,3 +74,33 @@ Görüşmelerde genel olarak şu alanlara odaklanılır:
 - Sınav gününe yönelik somut bir hazırlık planı oluşturmak
 
 Süreç, aşağıda yer alan adımlarla ilerler ve her öğrencinin ihtiyacına göre şekillenir.
+
+## Sınav Kaygısının Altında Ne Yatar?
+
+Sınav kaygısı yalnızca "yeterince çalışmadım" korkusundan kaynaklanmaz. Arka planda sık görülen etkenler şunlardır:
+
+- **Mükemmeliyetçilik:** "Tam doğru yapamazsam değersizim" inancı, kaygıyı performans baskısına dönüştürür.
+- **Aile beklentisi:** Ebeveynlerin ya da çevrenin beklentileri, öğrencinin kendi beklentisinin de ötesinde bir yük oluşturabilir.
+- **Önceki başarısızlık deneyimi:** Geçmişteki kötü bir sınav sonucu, sonraki sınavlara "bu sefer de olacak" önyargısıyla girilmesine neden olabilir.
+- **Belirsizlik tahammülsüzlüğü:** "Ya çıkamazssam?" gibi sonucu kontrol edememe duygusu, kaygıyı besler.
+
+Bu nedenlerin farkında olmak, kaygıyla başa çıkmanın ilk ve en önemli adımıdır.
+
+## Sınav Kaygısıyla Başa Çıkmak Mümkün Mü?
+
+Evet — ancak hedef, kaygıyı sıfırlamak değildir. Belirli bir düzeyde kaygı motivasyonu destekler ve odaklanmayı güçlendirir. Amaç, kaygıyı **yönetilebilir bir düzeye indirmek** ve performansın önüne geçmesini engellemektir.
+
+Danışmanlık sürecinde öğrenciler; kaygı döngüsünü tanımayı, sınav öncesi ritüeller oluşturmayı ve zihnin "boşalma" anlarında kullanabilecekleri somut stratejiler geliştirmeyi öğrenir. Bu beceriler yalnızca sınav için değil, stresli herhangi bir performans durumunda da geçerlidir.
+
+## Online Sınav Kaygısı Danışmanlığı Kimler İçin Uygun?
+
+Sınav kaygısı danışmanlığı; YKS, LGS, KPSS, ALES ve benzeri merkezi sınavlara hazırlanan öğrencilerin yanı sıra performans kaygısı yaşayan her yaştan bireye uygundur.
+
+Online format özellikle şu durumlarda pratik bir çözüm sunar:
+
+- Sınava hazırlık sürecinde zaman ve ulaşım sorunu yaşayan öğrenciler
+- Kursun yoğun programı ile görüşme saatlerini uydurmakta güçlük çekenler
+- Farklı şehirde yaşayan ya da bulunduğu yerde uygun bir danışman bulamayan öğrenciler
+- Yüz yüze bir ofise gitmeden önce daha erişilebilir bir ilk adım arayan ebeveynler ve öğrenciler
+
+Görüşmeler Zoom üzerinden gizlilik ilkesine uygun şekilde yürütülür. Başlamak için [randevu sayfasını](/randevu/) veya [iletişim formunu](/iletisim/) kullanabilirsiniz.

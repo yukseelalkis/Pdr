@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Anne ve ergen çocuğu evde sıcak bir sohbet sırasında birlikte oturuyor">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbf6ec"/>
+      <stop offset="1" stop-color="#f4ecd9"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dde3cd"/>
+      <stop offset="1" stop-color="#cdd6b9"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d6e7ec"/>
+      <stop offset="1" stop-color="#b7d3da"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fffdf9" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#fffdf9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sofa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecdfc4"/>
+      <stop offset="1" stop-color="#ddc9a3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- room -->
+  <rect width="800" height="600" fill="url(#wall)"/>
+  <rect y="430" width="800" height="170" fill="url(#floor)"/>
+
+  <!-- window with soft daylight -->
+  <g>
+    <rect x="70" y="70" width="200" height="250" rx="10" fill="#fffdf9"/>
+    <rect x="82" y="82" width="176" height="226" rx="6" fill="url(#sky)"/>
+    <line x1="170" y1="82" x2="170" y2="308" stroke="#fffdf9" stroke-width="8"/>
+    <line x1="82" y1="195" x2="258" y2="195" stroke="#fffdf9" stroke-width="8"/>
+    <circle cx="135" cy="140" r="26" fill="#fffdf9" opacity="0.85"/>
+  </g>
+  <!-- light beams into room -->
+  <polygon points="120,330 300,330 470,600 60,600" fill="url(#sun)" opacity="0.7"/>
+
+  <!-- potted plant -->
+  <g>
+    <path d="M690 430 q-30 -120 -8 -170 q10 70 22 90 q-2 -90 26 -120 q4 80 16 120 q14 -40 40 -60 q-22 60 -34 140 z" fill="#7c8d68"/>
+    <path d="M666 430 h78 l-12 70 h-54 z" fill="#647450"/>
+  </g>
+
+  <!-- soft accent circle behind figures -->
+  <circle cx="430" cy="300" r="180" fill="#dde3cd" opacity="0.55"/>
+
+  <!-- sofa -->
+  <g>
+    <rect x="250" y="360" width="380" height="120" rx="26" fill="url(#sofa)"/>
+    <rect x="232" y="320" width="60" height="160" rx="26" fill="#ddc9a3"/>
+    <rect x="588" y="320" width="60" height="160" rx="26" fill="#ddc9a3"/>
+    <rect x="270" y="350" width="340" height="40" rx="20" fill="#f4ecd9" opacity="0.7"/>
+    <!-- cushion accents in brand tones -->
+    <rect x="300" y="356" width="62" height="62" rx="14" fill="#aab896"/>
+    <rect x="520" y="356" width="62" height="62" rx="14" fill="#b7d3da"/>
+  </g>
+
+  <!-- parent (left figure, sage) -->
+  <g>
+    <!-- body -->
+    <path d="M330 470 q-14 -110 36 -150 q40 -28 78 -2 q34 30 24 152 z" fill="#647450"/>
+    <!-- supportive arm around teen -->
+    <path d="M430 360 q70 -8 96 36 q10 22 -6 36 q-14 10 -28 -6 q-22 -30 -64 -30 z" fill="#7c8d68"/>
+    <!-- neck + head -->
+    <rect x="384" y="232" width="24" height="34" rx="12" fill="#e9c4a4"/>
+    <circle cx="396" cy="212" r="40" fill="#eccaa9"/>
+    <!-- hair -->
+    <path d="M356 210 q-6 -52 40 -56 q50 -2 44 54 q-6 -26 -30 -30 q4 16 -8 22 q-18 -16 -46 10 z" fill="#4f4338"/>
+  </g>
+
+  <!-- teen (right figure, sky) -->
+  <g>
+    <!-- body -->
+    <path d="M452 472 q-10 -86 30 -116 q34 -22 64 0 q34 28 22 116 z" fill="#557a8c"/>
+    <!-- neck + head -->
+    <rect x="500" y="276" width="22" height="30" rx="11" fill="#e9c4a4"/>
+    <circle cx="511" cy="258" r="34" fill="#eccaa9"/>
+    <!-- hair -->
+    <path d="M479 256 q-4 -42 32 -44 q40 -2 36 42 q-8 -20 -26 -22 q2 14 -10 18 q-14 -10 -32 6 z" fill="#3a3128"/>
+  </g>
+
+  <!-- gentle connection accent: heart -->
+  <path d="M470 200 q10 -18 26 -8 q12 8 4 24 q-8 14 -30 30 q-22 -16 -30 -30 q-8 -16 4 -24 q16 -10 26 8 z" fill="#b7d3da" opacity="0.85"/>
+
+  <!-- subtle floor shadow -->
+  <ellipse cx="440" cy="486" rx="210" ry="18" fill="#647450" opacity="0.12"/>
+</svg>
